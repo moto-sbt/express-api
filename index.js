@@ -12,23 +12,22 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get("/products", (req,res) => {
-  const products = [
-  {
-    id: 1,
-    name: "taro",
-  },
-  {
-    id: 2,
-    name: "jiro",
-  },
-  {
-    id: 3,
-    name: "saburo",
-  },
- ];
+app.get("/users", (req, res) => {
+  res.json([
+    {
+      id: 1,
+      name: "User Userson",
+    },
+  ]);
+});
 
- res.json(products);
+app.get("/products", (req, res) => {
+  res.json([
+    {
+      id: 1,
+      name: "The Bluest Eye",
+    },
+  ]);
 });
 
 app.use((req, res, next) => {
