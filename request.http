@@ -1,1 +1,11 @@
-http://localhost:3000/products
+@url = http://localhost:3000
+
+###
+GET {{url}}
+
+### 
+GET {{url}}/products
+
+### 認証あり
+GET {{url}}/users
+Authorization: secretpassword
