@@ -7,3 +7,8 @@ export const isAuthorized = (req, res, next) => {
     res.send('Not permitted');
   }
 }
+
+// 認証用ミドルウェア
+const auth = (req, res, next) => {
+  let token = '';
+}
