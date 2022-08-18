@@ -6,6 +6,15 @@ GET {{url}}
 ### 
 GET {{url}}/products
 
+### 認証
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "username": "xxxx",
+  "password": "xxxx"
+}
+
 ### 認証あり
 GET {{url}}/users
 Authorization: secretpassword
