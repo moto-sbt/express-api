@@ -1,6 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
-// import user from './controller/user.controller.js';
-// import auth from './controller/auth.controller.js';
+import user from './controller/user.controller';
+import auth from './controller/auth.controller';
 
 const app: Application = express();
 const port: number = 3000;
@@ -14,8 +14,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-// app.use(user);
-// app.use(auth);
+app.use(user);
+app.use(auth);
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
   res.send('Hello World!')

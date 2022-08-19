@@ -1,11 +1,11 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
 const router = express.Router();
 
 const SECRET_KEY = 'xxxxxxx'
 
-router.post('/login', (req, res) => {
+router.post('/login', (req: Request, res: Response, next: NextFunction) => {
 
   // ID, PW取得
   const username = req.body.username;
@@ -22,6 +22,7 @@ router.post('/login', (req, res) => {
       error: "auth error"
     });
   }
+  next();
 })
 
 export default router
