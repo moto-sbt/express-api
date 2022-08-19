@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { isAuthorized } from '../lib/authorized';
+import { isAuthorized } from '../middleware/auth.middleware';
 
 const router = express.Router();
 

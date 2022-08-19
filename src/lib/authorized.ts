@@ -1,16 +1,15 @@
-import { Request, Response, NextFunction } from 'express';
+import jwt from 'jsonwebtoken';
 
-export const isAuthorized = (req: Request, res: Response, next: NextFunction) => {
-  const auth = req.headers.authorization;
-  if (auth === 'secretpassword') {
-    next()
-  } else {
-    res.status(401);
-    res.send('Not permitted');
-  }
+const SECRET_KEY = 'xxxxxxx'
+
+export const createToken = (username: string): string => {
+  return jwt.sign({ username: username }, SECRET_KEY, { expiresIn: '1h'});
 }
 
-// 認証用ミドルウェア
-const auth = (req: Request, res: Response, next: NextFunction) => {
-  let token = '';
+export const isTokenValid = (token: string): boolean => {
+  let isTokenValid = false;
+  jwt.verify(token, SECRET_KEY, (err) => {
+    if(!err) isTokenValid = true;
+  })
+  return isTokenValid;
 }
