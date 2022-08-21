@@ -1,16 +1,17 @@
-import express, { Request, Response, NextFunction } from 'express';
-import { isAuthorized } from '../middleware/auth.middleware';
+import { Controller, Get, UseBefore } from 'routing-controllers';
+import { AuthMiddleware } from '../middleware/auth.middleware';
 
-const router = express.Router();
-
-router.get('/users', isAuthorized, (req: Request, res: Response, next: NextFunction) => {
-  res.json([
+@Controller('/users')
+@UseBefore(AuthMiddleware)
+export class UserController {
+  @Get('/')
+  getAll() {
+    const users = [
       {
         id: 1,
         name: "User Userson",
       },
-    ]);
-  next();
-})
-
-export default router
+    ];
+    return users;
+  }
+}

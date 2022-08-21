@@ -1,11 +1,8 @@
 @url = http://localhost:3000
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh4eHgiLCJpYXQiOjE2NjA5Mjc0OTEsImV4cCI6MTY2MDkzMTA5MX0.0mDnoqOYkulLdzNDgnNSCghenDyzOPODGLlmfn6VYFs
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh4eHgiLCJpYXQiOjE2NjExMDkxOTIsImV4cCI6MTY2MTExMjc5Mn0.AJTYZovEAYzG9HRCKdYEPYKsTKsm8UOlzePLfTDqylA
 
 ###
 GET {{url}}
-
-### 
-GET {{url}}/products
 
 ### 認証
 POST {{url}}/login
