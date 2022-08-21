@@ -1,22 +1,24 @@
-import express, { Request, Response, NextFunction } from 'express';
+import { Controller, Post, Body } from 'routing-controllers';
 import { createToken } from '../lib/authorized';
 
-const router = express.Router();
+type LoginData = {
+  username: string
+  password: string
+}
+@Controller()
+export class AuthController {
+  @Post('/login')
+  login(@Body() loginData: LoginData) {
+    // ID, PW 取得
+    const username = loginData.username;
+    const password = loginData.password;
 
-router.post('/login', (req: Request, res: Response, next: NextFunction) => {
-
-  // ID, PW取得
-  const username = req.body.username;
-  const password = req.body.password;
-
-  // 認証（仮）
-  if (username === "xxxx" && password === "xxxx") {
-    const token = createToken(username);
-    res.json({ token: token });
-  } else {
-    res.json({ error: "auth error" });
+    // 認証（仮）
+    if (username === "xxxx" && password === "xxxx") {
+      const token = createToken(username);
+      return { token: token };
+    } else {
+      return { error: "auth error" };
+    }
   }
-  next();
-})
-
-export default router
+}
