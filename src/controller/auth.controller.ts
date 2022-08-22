@@ -5,6 +5,7 @@ type LoginData = {
   username: string
   password: string
 }
+
 @Controller()
 export class AuthController {
   @Post('/login')
