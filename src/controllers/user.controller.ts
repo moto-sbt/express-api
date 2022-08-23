@@ -1,6 +1,6 @@
 import { Controller, Get, UseBefore } from 'routing-controllers';
-import { AuthMiddleware } from '../middleware/auth.middleware';
-import { UserService } from '../service/userService';
+import { AuthMiddleware } from '../middlewares/auth.middleware';
+import { UserService } from '../services/userService';
 
 const userService = new UserService();
 

@@ -2,8 +2,8 @@ import 'reflect-metadata';
 import express from 'express';
 import bodyParser from 'body-parser';
 import { useExpressServer } from 'routing-controllers';
-import { UserController } from './controller/user.controller';
-import { AuthController } from './controller/auth.controller';
+import { UserController } from './controllers/user.controller';
+import { AuthController } from './controllers/auth.controller';
 import { AppDataSource } from './app-data-source';
 import { User } from './entity/User';
 
