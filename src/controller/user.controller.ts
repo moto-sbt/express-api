@@ -1,17 +1,15 @@
 import { Controller, Get, UseBefore } from 'routing-controllers';
 import { AuthMiddleware } from '../middleware/auth.middleware';
+import { UserService } from '../service/userService';
+
+const userService = new UserService();
 
 @Controller('/users')
 @UseBefore(AuthMiddleware)
 export class UserController {
   @Get('/')
-  getAll() {
-    const users = [
-      {
-        id: 1,
-        name: "User Userson",
-      },
-    ];
+  async getAll() {
+    const users = await userService.all()
     return users;
   }
 }
