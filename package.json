@@ -4,7 +4,8 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "db:insert": "ts-node ./src/database/test-data-insert.ts"
   },
   "dependencies": {
     "class-transformer": "^0.5.1",

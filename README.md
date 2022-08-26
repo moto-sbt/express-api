@@ -3,7 +3,13 @@
 ```
 docker compose up
 ```
-2. node を実行
+
+2. テストデータを登録する
+```
+yarn db:insert
+```
+
+3. 実行
 ```
 yarn dev
 ```
