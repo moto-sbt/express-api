@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import { useExpressServer } from 'routing-controllers';
 import { UserController } from './controllers/user.controller';
 import { AuthController } from './controllers/auth.controller';
-import { AppDataSource } from './app-data-source';
+import { AppDataSource } from './database/app-data-source';
 
 AppDataSource.initialize()
 
