@@ -1,21 +1,19 @@
+import { faker } from '@faker-js/faker';
 import { AppDataSource } from './app-data-source';
 import { User } from '../entity/User';
 
 AppDataSource.initialize()
 .then(async () => {
-  await AppDataSource.manager.save(
-    AppDataSource.manager.create(User, {
-      username: "motosbt",
-      password: "password"
-    })
-  )
 
-  await AppDataSource.manager.save(
-    AppDataSource.manager.create(User, {
-      username: "mtnrsbt",
-      password: "password"
-    })
-  )
+  for (let i = 0; i < 3; i++) {
+    await AppDataSource.manager.save(
+      AppDataSource.manager.create(User, {
+        username: faker.internet.userName(),
+        password: "password"
+      })
+    )
+  }
+
   console.log("Data Source has been initialized!")
 })
 .catch((err) => {
