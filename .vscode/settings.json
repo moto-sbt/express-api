@@ -1,3 +1,5 @@
 {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "plantuml.render": "PlantUMLServer",
+    "plantuml.server": "http://localhost:8080"
 }
