@@ -1,6 +1,29 @@
 @startuml test_er
-Entity01 }|..|| Entity02
-Entity03 }o..o| Entity04
-Entity05 ||--o{ Entity06
-Entity07 |o--|| Entity08
+' Entity01 }|..|| Entity02
+' Entity03 }o..o| Entity04
+' Entity05 ||--o{ Entity06
+' Entity07 |o--|| Entity08
+
+entity "ユーザー" as user {
+  id
+  --
+  ユーザ名
+  パスワード
+  所属
+}
+
+entity "PC情報" as pc_info {
+  id
+  --
+  メーカー
+  型番
+  シリアル番号
+  タイプ
+  CPU
+  メモリ
+  OS
+  ストレージ
+}
+
+user --o{ pc_info
 @enduml
