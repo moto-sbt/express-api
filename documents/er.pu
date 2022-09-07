@@ -15,27 +15,15 @@ entity "ユーザー" as user {
 entity "PC情報" as pc_info {
   id
   --
-  メーカー ID
+  メーカー
   型番
   シリアル番号
-  タイプID
-  更新日
-}
-
-entity "PC情報詳細" as pc_info_detail {
-  id
-  --
-  PC情報ID
-  CPU ID
-  メモリ ID
-  OS ID
-  ストレージ ID
-  セットアップ日付
-  使用ユーザ
-  更新者
-  メモ
+  タイプ
+  CPU
+  メモリ
+  OS
+  ストレージ
 }
 
 user --o{ pc_info
-pc_info -- pc_info_detail
 @enduml
