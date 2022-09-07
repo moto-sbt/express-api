@@ -25,5 +25,5 @@ entity "PC情報" as pc_info {
   ストレージ
 }
 
-user --o{ pc_info
+' user --o{ pc_info ゆくゆくはこう
 @enduml
