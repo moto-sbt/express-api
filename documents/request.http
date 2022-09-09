@@ -1,10 +1,10 @@
 @url = http://localhost:3000
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh4eHgiLCJpYXQiOjE2NjI3MDkzMTUsImV4cCI6MTY2MjcxMjkxNX0.mdenrgR7p9pWwYPMLLR_k9KY9Cv_pWSf6YJFffKpG2Q
 
 ###
 GET {{url}}
 
 ### 認証
+# @name auth
 POST {{url}}/login
 Content-Type: application/json
 
@@ -13,10 +13,15 @@ Content-Type: application/json
   "password": "password"
 }
 
+###
+@token = {{auth.response.body.$.token}}
+
+
+################## User ###################
 ### 全ユーザ取得
 GET {{url}}/users
-Authorization: {{token}}
+Authorization: Bearer {{token}}
 
 ### ユーザ取得
 GET {{url}}/users/motosbt
-Authorization: {{token}}
+Authorization: Bearer {{token}}
