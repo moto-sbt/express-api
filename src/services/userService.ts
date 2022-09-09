@@ -8,4 +8,12 @@ export class UserService {
   async all() {
     return this.userRepository.find();
   }
+
+  async getOneByUserId(userId: string) {
+    const user = this.userRepository
+      .createQueryBuilder("user")
+      .where("user.userId = :userId", { userId })
+      .getOne();
+    return user;
+  }
 }

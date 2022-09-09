@@ -1,5 +1,5 @@
 @url = http://localhost:3000
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh4eHgiLCJpYXQiOjE2NjEyOTg0NzIsImV4cCI6MTY2MTMwMjA3Mn0.FNIOG371xTl2_33ZRFtyMJRLbg89Gmcz4BQupxKgLzQ
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh4eHgiLCJpYXQiOjE2NjI3MDkzMTUsImV4cCI6MTY2MjcxMjkxNX0.mdenrgR7p9pWwYPMLLR_k9KY9Cv_pWSf6YJFffKpG2Q
 
 ###
 GET {{url}}
@@ -9,10 +9,14 @@ POST {{url}}/login
 Content-Type: application/json
 
 {
-  "username": "xxxx",
-  "password": "xxxx"
+  "userId": "motosbt",
+  "password": "password"
 }
 
-### 認証あり
+### 全ユーザ取得
 GET {{url}}/users
+Authorization: {{token}}
+
+### ユーザ取得
+GET {{url}}/users/motosbt
 Authorization: {{token}}

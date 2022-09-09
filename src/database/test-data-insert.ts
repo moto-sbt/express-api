@@ -5,10 +5,17 @@ import { User } from '../entity/User';
 AppDataSource.initialize()
 .then(async () => {
 
+  await AppDataSource.manager.save(
+    AppDataSource.manager.create(User, {
+      userId: "motosbt",
+      password: "password"
+    })
+  )
+
   for (let i = 0; i < 3; i++) {
     await AppDataSource.manager.save(
       AppDataSource.manager.create(User, {
-        username: faker.internet.userName(),
+        userId: faker.internet.userName(),
         password: "password"
       })
     )
