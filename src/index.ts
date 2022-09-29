@@ -12,6 +12,13 @@ const app = express()
 
 app.use(bodyParser.json());
 
+// CORSを許可
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 useExpressServer(app, {
   controllers: [
     UserController,
@@ -19,4 +26,4 @@ useExpressServer(app, {
   ]
 })
 
-app.listen(3000);
+app.listen(3001);
